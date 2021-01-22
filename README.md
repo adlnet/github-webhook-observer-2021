@@ -1,10 +1,10 @@
 # github-webhook-observer-2021
 
-This server monitors git webhooks and rebuilds projects when new commits are made to their repo. 
+This server monitors Github webhooks and rebuilds projects when new commits are made to their repos. 
 
-It's designed around docker-compose projects and utilizes some of Docker-compose's configuration to rebuild only the docker comtainers that need to.
+It's designed around docker-compose projects and utilizes some of docker-compose's configuration to rebuild only the docker comtainers that need to.
 
-The github webhook should be set to send PUSH notifications only.
+The webhook should be set to send PUSH notifications only.
 
 ## Installation
 ```
