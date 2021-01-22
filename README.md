@@ -15,18 +15,19 @@ I prefer to install npm through [nvm](https://tecadmin.net/how-to-install-nvm-on
 ## Usage
 ```
 node git-observer.js [path/to/project/folder] [github-webhook-secret] [port] [rebuild.sh]
-```
+
 arguments:
 
 [path/to/project/folder] - Required. This is from the point of the .js file, 
         so if the observer and target folders are in the same directory then it would
         look like. "../targert-project-folder".
 
-    [github-webhook-secret] - Required. This is the secret set in the github webhook settings.
+[github-webhook-secret] - Required. This is the secret set in the github webhook settings.
 
-    [port] - Optional. The default is 8000.
+[port] - Optional. The default is 8000.
 
-    [rebuild.sh] - Optional. name of Bash script to rebuild project. 
-                   Expected in project root directory. 
-                   The default is 'rebuild.sh'
+[rebuild.sh] - Optional. name of Bash script to rebuild project. Expected in project root directory. 
+               The default is 'rebuild.sh'
+```
+
 
