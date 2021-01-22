@@ -30,4 +30,7 @@ arguments:
                The default is 'rebuild.sh'
 ```
 
+##Run as service
+```soon```
+
 
