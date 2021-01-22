@@ -10,6 +10,7 @@ The github webhook should be set to send PUSH notifications only.
 ```
 npm i
 ```
+I prefer to install npm through [nvm](https://tecadmin.net/how-to-install-nvm-on-ubuntu-20-04/)
 
 ## Usage
 ```
