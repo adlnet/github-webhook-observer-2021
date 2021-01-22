@@ -6,13 +6,18 @@ It's designed around docker-compose projects and utilizes some of Docker-compose
 
 The github webhook should be set to send PUSH notifications only.
 
-Usage:
+## Installation
+```
+npm i
+```
 
+## Usage
+```
 node git-observer.js [path/to/project/folder] [github-webhook-secret] [port] [rebuild.sh]
+```
+arguments:
 
-args:
-
-    [path/to/project/folder] - Required. This is from the point of the .js file, 
+[path/to/project/folder] - Required. This is from the point of the .js file, 
         so if the observer and target folders are in the same directory then it would
         look like. "../targert-project-folder".
 
@@ -20,5 +25,7 @@ args:
 
     [port] - Optional. The default is 8000.
 
-    [rebuild.sh] - Optional. name of Bash script to rebuild project. Expected in project root directory. The default is 'rebuild.sh'
+    [rebuild.sh] - Optional. name of Bash script to rebuild project. 
+                   Expected in project root directory. 
+                   The default is 'rebuild.sh'
 
