@@ -5,14 +5,13 @@
 *  Github webhooks send all kinds of notifications, but this only acts on "push". 
 *  
 ***/
-require("dotenv").config();
-
 const http = require('http');
 const crypto = require('crypto');
 const process = require('process');
 const yaml = require('js-yaml');
 const fs = require('fs');
 const { execSync } = require('child_process');
+const dotenv = require("dotenv");
 
 /***
  * Use the file system to determine which containers the modified files belong to.
@@ -40,6 +39,7 @@ const isEqualLength = (x, y) => x.length == y.length;
 /***
  * Repo config
  **/
+const dotenvConfig = dotenv.config();
 const args = process.argv;
 const repo = args[2] || process.env.REPO || "../path-to-project-folder";
 const secret = args[3] || process.env.SECRET || "git-observer-secret";
@@ -110,8 +110,7 @@ http.createServer(function (req, res) {
             `);
         }
     });
-
-    res.end();
+    res.end(`Secret: ${secret}\nRepo: ${repo}`);
 }).listen(port);
 
 
