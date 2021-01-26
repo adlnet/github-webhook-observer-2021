@@ -42,7 +42,7 @@ const isEqualLength = (x, y) => x.length == y.length;
 const dotenvConfig = dotenv.config();
 const args = process.argv;
 const repo = args[2] || process.env.REPO || "../path-to-project-folder";
-const secret = args[3] || process.env.SECRET || "git-observer-secret";
+const secret = args[3] || process.env.WEBHOOK_SECRET || "git-observer-secret";
 const port = args[4] || process.env.PORT || 8000;
 const rebuildCommand = args[5] || process.env.REBUILD_COMMAND || "bash rebuild.sh"
 
