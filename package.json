@@ -1,0 +1,27 @@
+{
+  "name": "github-webhook-observer-2021",
+  "version": "1.0.0",
+  "description": "This server monitors Github webhooks and rebuilds projects when new commits are made to their repos.",
+  "main": "git-observer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adlnet/github-webhook-observer-2021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adlnet/github-webhook-observer-2021/issues"
+  },
+  "homepage": "https://github.com/adlnet/github-webhook-observer-2021#readme",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "dotenv": "^8.2.0",
+    "fs": "0.0.1-security",
+    "http": "0.0.1-security",
+    "js-yaml": "^4.0.0",
+    "process": "^0.11.10"
+  }
+}
