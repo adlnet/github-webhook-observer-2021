@@ -12,6 +12,8 @@ const yaml = require('js-yaml');
 const fs = require('fs');
 const { execSync } = require('child_process');
 
+
+
 /***
  * Use the file system to determine which containers the modified files belong to.
  * Args: 1. Array [] of containerNames from getContainerNames 2. Array [] of strings of modified files from github req body 
@@ -38,11 +40,13 @@ const isEqualLength = (x, y) => x.length == y.length;
 /***
  * Repo config
  **/
+require("dotenv").config();
+
 const args = process.argv;
-const repo = args[2] || "../path-to-project-folder";
-const secret = args[3] || "git-observer-secret";
-const port = args[4] || 8000;
-const rebuild = args[5] || "rebuild.sh"
+const repo = args[2] || process.env.REPO || "../path-to-project-folder";
+const secret = args[3] || process.env.SECRET || "git-observer-secret";
+const port = args[4] || process.env.PORT || 8000;
+const rebuildCommand = args[5] || process.env.REBUILD_COMMAND || "bash rebuild.sh"
 
 http.createServer(function (req, res) {
 
@@ -79,7 +83,7 @@ http.createServer(function (req, res) {
 
             //rebuild all with rebuild script
             if (isEqualLength(Object.entries(composeConfig['services']), containersToRebuild)) {
-                execSync(`cd ${repo} && sudo bash ${rebuild}`);
+                execSync(`cd ${repo} && sudo ${rebuildCommand}`);
 
                 //Rebuild only the new ones and restart nginx 
             } else if (containersToRebuild.length > 0) {
