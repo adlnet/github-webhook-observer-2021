@@ -1,10 +1,8 @@
 # 2021 Webhook Observer
 
-This server monitors Github webhooks and rebuilds project containers when new commits are made to their corresponding codebases. 
+This project creates a small NodeJS service to listen for Github webhooks and rebuild project containers when their codebases change.  
 
-It's designed around docker-compose projects and utilizes some of docker-compose's configuration to rebuild only the necessary comtainers that received changes.
-
-The webhook should be set to send PUSH notifications only.
+As this service will be listening for GitHub webhooks, some minor configuration is required and the webhooks themselves should be set to send PUSH notifications only.
 
 ## TL;DR
 
@@ -34,7 +32,7 @@ The observer needs a little configuration to work properly.  These settings are 
 |REPO|`../my-project`|Relative path to the repo being observed.|
 |WEBHOOK_SECRET|`some-long-secret`|The webhook secret being used in the GitHub Webhook settings|
 |PORT|`8000`|The port being used by the observer|
-|REBUILD_COMMAND|`docker-compose up -d --build`|Seldom-used command that will be triggered if all containers need to be rebuilt.|
+|REBUILD_COMMAND|`docker-compose up -d`|Seldom-used command that will be triggered if all containers need to be rebuilt.|
 
 but the project does support CLI arguments if that's more your style:
 ```
