@@ -63,9 +63,3 @@ sudo pm2 start watch.js
 ```
 
 This will ensure that the observer persists through machine restarts and whatnot.  More information on PM2 can be found **[here](https://pm2.keymetrics.io/docs/usage/quick-start/)**.
-
-
-## Run as service
-```soon```
-
-
