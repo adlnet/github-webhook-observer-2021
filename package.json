@@ -2,7 +2,7 @@
   "name": "github-webhook-observer-2021",
   "version": "1.0.0",
   "description": "This server monitors Github webhooks and rebuilds projects when new commits are made to their repos.",
-  "main": "git-observer.js",
+  "main": "watch.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
