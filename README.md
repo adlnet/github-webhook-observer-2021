@@ -29,6 +29,7 @@ The observer needs a little configuration to work properly.  These settings are 
 
 |Property|Example|Description|
 |-|-|-|
+|PULLING_USER|`ubuntu`|Machine user running the git commands.|
 |REPO|`../my-project`|Relative path to the repo being observed.|
 |WEBHOOK_SECRET|`some-long-secret`|The webhook secret being used in the GitHub Webhook settings|
 |PORT|`8000`|The port being used by the observer|
@@ -50,6 +51,8 @@ arguments:
 
 [rebuild.sh] - Optional. name of Bash script to rebuild project. Expected in project root directory. 
                The default is 'rebuild.sh'
+               
+[user] - Optional. The default is 'ubuntu'.
 ```
 
 
