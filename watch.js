@@ -45,6 +45,7 @@ const repo = args[2] || process.env.REPO || "../path-to-project-folder";
 const secret = args[3] || process.env.WEBHOOK_SECRET || "git-observer-secret";
 const port = args[4] || process.env.PORT || 8000;
 const rebuildCommand = args[5] || process.env.REBUILD_COMMAND || "bash rebuild.sh"
+const user = args[6] || process.env.PULLING_USER || "ubuntu";
 
 http.createServer(function (req, res) {
 
@@ -61,7 +62,7 @@ http.createServer(function (req, res) {
             `);
 
             //Pull new updates
-            execSync(`cd ${repo} && git pull && sudo docker ps`);
+            execSync(`cd ${repo} && sudo -H -u ${user} git pull && sudo docker ps`);
 
             //Github headers list the files(including full path) changed from last commit in array of strings.
             let body = JSON.parse(chunk);
