@@ -149,7 +149,7 @@ http.createServer(function (req, res) {
             `);
         }
     });
-    res.end(`Secret: ${secret}\nRepo: ${repo}`);
+    res.end();
 }).listen(port);
 
 
