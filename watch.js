@@ -92,7 +92,7 @@ http.createServer(function (req, res) {
             `);
 
             //Pull new updates
-            execSync(`cd ${repo} && sudo -H -u ${user} git pull && sudo docker ps`);
+            execSync(`cd ${repo} && -H -u ${user} git pull && docker ps`);
 
             //Github headers list the files(including full path) changed from last commit in array of strings.
             let body = JSON.parse(chunk);
@@ -120,17 +120,17 @@ http.createServer(function (req, res) {
 
             //rebuild all with rebuild script
             if (isEqualLength(Object.entries(composeConfig['services']), containersToRebuild)) {
-                execSync(`cd ${repo} && sudo ${rebuildCommand}`);
+                execSync(`cd ${repo} && ${rebuildCommand}`);
 
                 //Rebuild only the new ones and restart nginx 
             } else if (containersToRebuild.length > 0) {
                 containersToRebuild.forEach(service => {
-                    execSync(`cd ${repo} && sudo docker-compose stop ${service}`);
-                    execSync(`cd ${repo} && sudo docker-compose rm ${service}`);
+                    execSync(`cd ${repo} && docker-compose stop ${service}`);
+                    execSync(`cd ${repo} && docker-compose rm ${service}`);
                 });
                 //Always restart nginx last
-                execSync(`cd ${repo} && sudo docker-compose up -d --no-deps --build `);
-                execSync(`cd ${repo} && sudo docker-compose restart nginx`);
+                execSync(`cd ${repo} && docker-compose up -d --no-deps --build `);
+                execSync(`cd ${repo} && docker-compose restart nginx`);
 
                 console.log(`
             ========================================
