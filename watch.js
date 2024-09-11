@@ -24,7 +24,7 @@ const port = args[4] || process.env.PORT || 8000;
 const rebuildCommand = args[5] || process.env.REBUILD_COMMAND || "bash rebuild.sh"
 const user = args[6] || process.env.PULLING_USER || "ubuntu";
 const branchPattern = args[7] || process.env.BRANCH_PATTERN || null;
-const pullOnly = process.env.PULL_ONLY || false;
+const pullOnly = (process.env.PULL_ONLY === "true") || false;
 
 /**
  * Check whether or not a given string matches a given wildcard pattern.  
