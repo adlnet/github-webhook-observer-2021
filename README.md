@@ -9,7 +9,7 @@ As this service will be listening for GitHub webhooks, some minor configuration 
 - `git clone https://github.com/adlnet/github-webhook-observer-2021 webhooks`
 - `cd webhooks`
 - `sudo ./install.sh`
-- `cp sample.env`
+- `cp sample.env .env`
 - Populate `.env` file (see below)
 - `sudo pm2 start watch.js`
 
