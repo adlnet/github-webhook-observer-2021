@@ -92,7 +92,7 @@ http.createServer(function (req, res) {
             `);
 
             //Pull new updates
-            execSync(`cd ${repo} && -H -u ${user} git pull && docker ps`);
+            execSync(`cd ${repo} && sudo -H -u ${user} git pull && docker ps`);
 
             //Github headers list the files(including full path) changed from last commit in array of strings.
             let body = JSON.parse(chunk);
